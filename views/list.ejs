@@ -6,7 +6,25 @@
 </head>
 <body>
 
-    <h1>Its a <%= kindOfDay %> !</h1>
+    <h1>Its a <%= kindOfDay %></h1>
+
+    <ul>
+        
+        <% for(let i=0; i<=itemShow.length; i++){ %>
+            <li><%= itemShow[i] %></li>
+       <% } %>
+
+
+    </ul>
     
+    <form action="/" method="post">
+        <input type="text" name="newItem">
+        <button class="submit" type="submit">Add</button>
+    </form>
+
+
+
+
+
 </body>
 </html>
