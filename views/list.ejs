@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>EJS Templates</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <h1>Its a <%= kindOfDay %></h1>
+    <div class="box" id="heading">
+        <h1>Its a <%= kindOfDay %></h1>
+    </div>
 
-    <ul>
+    <div class="box">
+        <% for(let i=0; i<itemShow.length; i++){ %>
+        <div class="item">
+
+            <input type="checkbox">
         
-        <% for(let i=0; i<=itemShow.length; i++){ %>
-            <li><%= itemShow[i] %></li>
-       <% } %>
+            <p><%= itemShow[i] %></p>
+        
+    </div>
+    <% } %>
 
-
-    </ul>
-    
-    <form action="/" method="post">
-        <input type="text" name="newItem">
-        <button class="submit" type="submit">Add</button>
+    <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item">
+        <button class="submit" type="submit">+</button>
     </form>
+
+    </div>
+    
+    
+    
 
 
 
