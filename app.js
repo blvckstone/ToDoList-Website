@@ -10,7 +10,7 @@ let toDoItems = ["Reading", "Swimming", "Riding"];
 let workItems = [];
 
 app.get("/", function (req, res) {
-  day = date() //Use Date Module here that you created
+  day = date.getDate() //Use Date Module here that you created
   res.render("list", { listTitle: day, itemShow: toDoItems });
 });
 
