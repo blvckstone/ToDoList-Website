@@ -8,7 +8,7 @@
 <body>
 
     <div class="box" id="heading">
-        <h1>Its a <%= kindOfDay %></h1>
+        <h1>Its a <%= listTitle %></h1>
     </div>
 
     <div class="box">
@@ -24,7 +24,7 @@
 
     <form class="item" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item">
-        <button class="submit" type="submit">+</button>
+        <button class="submit" type="submit" name="list" value="<%= listTitle %>">+</button>
     </form>
 
     </div>
