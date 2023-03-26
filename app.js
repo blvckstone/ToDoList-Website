@@ -1,13 +1,32 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
 const date = require(__dirname + "/date.js");  //Created Module
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-let toDoItems = ["Reading", "Swimming", "Riding"];
-let workItems = [];
+mongoose.connect('mongodb://127.0.0.1:27017/toDoListDB');
+
+const itemSchema = new mongoose.Schema({
+  name: String,
+});
+
+const Item = new mongoose.model("Item", itemSchema);
+
+const reading = new Item({
+  name: "Reading"
+});
+
+const writing = new Item({
+  name: "Writing"
+});
+
+Item.insertMany([reading, writing]).then(function(){console.log("Items Inserted Succcessfully")}).catch(function(err){console.log(err)})
+
+// let toDoItems = ["Reading", "Swimming", "Riding"]; // As we do not need an array to store locally anymore so we comment it out
+// let workItems = [];
 
 app.get("/", function (req, res) {
   day = date.getDate() //Use Date Module here that you created
